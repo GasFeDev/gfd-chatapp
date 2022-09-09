@@ -1,8 +1,14 @@
 {
   "name": "chatapp",
+  "manifest_version": 2,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "minimum_chrome_version": "46",
+  "content_security_policy": "script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs='",
+  "background": {
+    "page": "background.html"
+  },
   "scripts": {
     "start": "node index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
