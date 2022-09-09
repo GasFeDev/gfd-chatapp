@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 import { axiosInstance } from "../../config";
+import { Sha256 } from "react-native-sha256";
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -32,7 +33,7 @@ export default function Rightbar({ user }) {
 
   const handleClick = async () => {
     try {
-      if (followed) {
+      if (Sha256(followed)) {
         await axiosInstance.put(`/users/${user._id}/unfollow`, {
           userId: currentUser._id,
         });
@@ -71,12 +72,12 @@ export default function Rightbar({ user }) {
   const ProfileRightbar = () => {
     return (
       <>
-        {/*  {user.username !== currentUser.username && (
+        {user.username !== currentUser.username && (
           <button className="rightbarFollowButton" onClick={handleClick}>
             {followed ? "Unfollow" : "Follow"}
             {followed ? <Remove /> : <Add />}
           </button>
-        )} */}
+        )}
         <h4 className="rightbarTitle">Información del perfil</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
