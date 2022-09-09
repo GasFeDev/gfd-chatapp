@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
 import { axiosInstance } from "../../config";
-import { Sha256 } from "react-native-sha256";
 
 export default function Rightbar({ user }) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -33,7 +32,7 @@ export default function Rightbar({ user }) {
 
   const handleClick = async () => {
     try {
-      if (Sha256(followed)) {
+      if (followed) {
         await axiosInstance.put(`/users/${user._id}/unfollow`, {
           userId: currentUser._id,
         });
