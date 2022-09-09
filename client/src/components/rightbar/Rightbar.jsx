@@ -71,12 +71,12 @@ export default function Rightbar({ user }) {
   const ProfileRightbar = () => {
     return (
       <>
-        {user.username !== currentUser.username && (
+        {/*  {user.username !== currentUser.username && (
           <button className="rightbarFollowButton" onClick={handleClick}>
             {followed ? "Unfollow" : "Follow"}
             {followed ? <Remove /> : <Add />}
           </button>
-        )}
+        )} */}
         <h4 className="rightbarTitle">Información del perfil</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">
