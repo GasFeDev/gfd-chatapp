@@ -1,14 +1,28 @@
 import "./topbar.css";
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { logout } from "../../context/AuthActions";
+import { axiosInstance } from "../../config";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
+  const [friends, setFriends] = useState([]);
   const { dispatch } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER; /* Carpeta pública */
+
+  useEffect(() => {
+    const getFriends = async () => {
+      try {
+        const friendList = await axiosInstance.get("/users/" + user._id);
+        setFriends(friendList.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getFriends();
+  }, [user]);
 
   return (
     <div className="topbarContainer">
@@ -19,7 +33,7 @@ export default function Topbar() {
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
-          <Link to={`/profile/username=${username}`}>
+          <Link to={`/profile/${friends.username}`}>
             <Search className="searchIcon" />
           </Link>
           <input
