@@ -19,7 +19,7 @@ export default function Topbar() {
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
-          <Link to={`/profile/${user.username}`}>
+          <Link to={`/profile/${username}`}>
             <Search className="searchIcon" />
           </Link>
           <input
@@ -49,7 +49,7 @@ export default function Topbar() {
             <span className="topbarIconBadge">23</span>
           </div>
         </div>
-        <Link to={`/profile/${username}`}>
+        <Link to={`/profile/${user.username}`}>
           <img
             src={
               user.profilePicture
