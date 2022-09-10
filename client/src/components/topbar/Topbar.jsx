@@ -49,7 +49,7 @@ export default function Topbar() {
             <span className="topbarIconBadge">23</span>
           </div>
         </div>
-        <Link to={`/profile/${user.username}`}>
+        <Link to={`/profile/${username}`}>
           <img
             src={
               user.profilePicture
