@@ -19,7 +19,7 @@ export default function Topbar() {
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
-          <Link to={`/profile/${username}`}>
+          <Link to={`/profile/username=${username}`}>
             <Search className="searchIcon" />
           </Link>
           <input
