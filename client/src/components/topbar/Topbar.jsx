@@ -19,7 +19,9 @@ export default function Topbar() {
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
-          <Search className="searchIcon" />
+          <Search className="searchIcon">
+            <Link to={`/profile/${user.username}`} />
+          </Search>
           <input
             placeholder="Buscar amigo, publicación o video"
             className="searchInput"
