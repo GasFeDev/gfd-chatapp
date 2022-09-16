@@ -84,3 +84,26 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+@media screen and (max-width: 590px) {
+  .loginLogo {
+    font-size: 25px;
+  }
+  .loginDesc {
+    font-size: 15px;
+    display: inline;
+  }
+  .loginLeft,
+  .loginRight {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .loginLogo {
+    display: none;
+  }
+  .loginDesc {
+    display: none;
+  }
+}
